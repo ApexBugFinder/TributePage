@@ -19,14 +19,36 @@
   justify-self: center;
   align-self: center;
 }
+.headerText {
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    background: #0b0726;
+    background: -webkit-linear-gradient(
+      to top,
+      #0b0726 0%,
+      #70308c 15%,
+      #fbe5f8 58%
+    );
+    background: -moz-linear-gradient(
+      to top,
+      #0b0726 0%,
+      #70308c 15%,
+      #fbe5f8 58%
+    );
+    background: linear-gradient(to top, #0b0726 0%, #70308c 15%, #fbe5f8 58%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
 
 #title {
   color: white;
+  
   font-family: "Permanent Marker", cursive;
   background: #0b0726;
   background: -webkit-linear-gradient(
     to top,
-    #0b0726 0%,
+    #0b0726 0%,id="img-div" 
     #70308c 15%,
     #fbe5f8 58%
   );
@@ -43,54 +65,157 @@
   font-size: 60px;
   z-index: 2;
   margin-top: -50px;
-  margin-left: -5%;
+  margin-left: -7%;
 }
-body {
-  background-image: url(../images/space.jpg);
-  background-repeat: space;
+#main {
+  background-image: url(../images/space2.jpg);
+  background-repeat: repeat-y;
   margin: 0px 10%;
 }
 
 hr {
   color: var(--tributePink);
+  opacity: .2;
 }
 
 #tribute-info {
   display: flex;
   flex-direction: column;
   background-color: rgb(39, 25, 89, 0.5);
-
-  grid-row-gap: 20px;
+  margin-top: 10%;
+  grid-row-gap: 60px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 5px solid var(--deepBlue);
 }
 .seasonsHeader {
   color: white;
   padding: 1% 2%;
+  letter-spacing: 5px;
+  align-items: center;
+}
+.season {
+    display: grid;
+  
+    
+    padding: 0 100px 0 100px;
+    grid-template-areas: 
+    "posterArea infoArea"
+    ;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+  }
+  
+.seasonPic {
+    width: auto;
+    grid-area: posterArea;
+    flex-shrink: 0;
+    display: flex;
+    align-content: center;
+    justify-items: center;
+    
+  }
+  
+.seasonInfo {
+    background-color: transparent;
+    color: white;
+    height: 95%;
+    padding: 2% 10%;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: infoArea;
+    
+  }
+
+
+
+.picContainer {
+align-self: flex-start;
+height: fit-content;
+overflow-y: hidden;
 }
 
-.season {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  padding: 0 100px 0 100px;
-}
-.seasonPic {
-  width: 200px;
-  -webkit-box-shadow: 5px 5px 15px 5px #70308C; 
-  box-shadow: 5px 5px 15px 5px #70308C;
-}
-.seasonInfo {
-  background-color: transparent;
-  color: white;
-  height: 200px;
-  padding: 0 10%;
-  font-size: 14px;
-}
 .seasonInfo p {
-  width: 90vmin;
+width: 90%;
+
+}
+.seasonInfo .info {
+display: flex;
+flex-direction: column;
+margin: 10px;
+min-width: 400px;
+font-family: 'Roboto', sans-serif;
 }
 .seasonInfo p::selection {
-  color: var(--tributePurple);
+color: var(--tributePurple);
 }
 .responsive-img {
-  max-width: 100%;
-  height: auto;
+max-width: 100%;
+height: auto;
 }
+
+.anchor {
+    justify-self: flex-end;
+    bottom: 80px;
+}
+.linkAnchor {
+color: gold;
+}
+
+.posterImg {
+    z-index: 1;
+}
+.img-caption {
+    z-index:2;
+    
+    position: relative;
+    left: 10px;
+   
+    
+    grid-area: captionArea;
+
+}
+.captiontext { 
+    color: white;
+    font-size: 10px;  
+}
+
+@media (max-width: 1154px) {
+     .season {
+            display:grid;
+            grid-template-areas:
+            "posterArea"
+            "captionArea"
+            "infoArea";
+            grid-template-columns: 500px;
+            grid-template-rows: 500px 40px 1fr;
+            
+            justify-content:space-around;
+            justify-items: center; 
+
+     }
+   
+     
+  }
+@media (min-width: 1155px) {
+
+    .season {
+            
+        
+        grid-template-areas: 
+        "posterArea infoArea"
+        "captionArea infoArea"
+        ;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 500px 40px;
+        
+       
+      
+
+ }
+ 
+}
+    
